@@ -1,0 +1,9 @@
+[build-options]
+  observabilityIncluded = true
+
+[package]
+  distribution = "2201.0.5"
+  export = ["hello_world"]
+  name = "hello_world"
+  org = "priyathgregorydev"
+

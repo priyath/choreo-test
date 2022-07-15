@@ -1,3 +1,4 @@
+import ballerinax/covid19;
 import ballerina/http;
 
 # A service representing a network-accessible API
@@ -12,6 +13,8 @@ service / on new http:Listener(9090) {
         if name is "" {
             return error("name should not be empty!");
         }
-        return "Hello, " + name;
+        covid19:Client covid19Endpoint = check new ({});
+        covid19:CovidCountry[] getAllCountriesStatusResponse = check covid19Endpoint->getAllCountriesStatus();
+        return getAllCountriesStatusResponse.toJsonString();
     }
 }
